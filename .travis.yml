@@ -8,4 +8,4 @@ before_install:
   - docker build -t saulable/docker-react -f Dockerfile.dev .
 
 script:
-  - docker run saualble/docker-react npm run test -- --coverage
+  - docker run saulable/docker-react npm run test -- --coverage

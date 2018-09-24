@@ -1,0 +1,11 @@
+#anytime we use docker, we need sudo
+sudo: required
+services:
+  - docker
+
+#we neeed to tag the image as we can't copy the id
+before_install:
+  - docker build -t saulable/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run saualble/docker-react npm run test -- --coverage

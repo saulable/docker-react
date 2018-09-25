@@ -9,3 +9,17 @@ before_install:
 
 script:
   - docker run saulable/docker-react npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  #depends on the instance
+  region: "us-east-2"
+  app: "docker-react"
+  env: "DockerReact-env"
+  bucket_name: "elasticbeanstalk-us-east-2-061719266472"
+  bucket_path: "docker-react"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
